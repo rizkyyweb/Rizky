@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rizky Ramdani — Portofolio DKV</title>
+    <style>
+        /* Modern CSS Reset & Variables */
+        :root {
+            --bg-color: #0d0e12;
+            --card-bg: #16171e;
+            --accent-color: #38bdf8;
+            --accent-gradient: linear-gradient(135deg, #38bdf8, #818cf8);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --border: #232530;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            letter-spacing: -0.01em;
+            line-height: 1.5;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 20px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Bar */
+        nav {
+            padding: 25px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--text-main);
+        }
+
+        /* Hero / Profile Showcase (Bento Style) */
+        .hero-bento {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 24px;
+            padding: 60px 0;
+        }
+
+        .bento-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-card {
+            background: linear-gradient(180deg, #16171e 0%, #111217 100%);
+        }
+
+        .intro-card .tag {
+            align-self: flex-start;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .intro-card h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+        }
+
+        .intro-card h1 span {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .intro-card p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            align-self: flex-start;
+            background: var(--text-main);
+            color: var(--bg-color);
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Image Frame Card */
+        .image-card {
+            padding: 0;
+            min-height: 400px;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Works Section */
+        .works-section {
+            padding-bottom: 100px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            height: 1px;
+            flex-grow: 1;
+            background: var(--border);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .work-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+        }
+
+        .work-thumbnail {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            background: #1e202b;
+        }
+
+        .work-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .work-info {
+            padding: 24px;
+        }
+
+        .work-meta {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--accent-color);
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .work-info h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .work-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .work-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-color);
+        }
+
+        .work-item:hover .work-thumbnail img {
+            transform: scale(1.04);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            .hero-bento {
+                grid-template-columns: 1fr;
+            }
+            .image-card {
+                min-height: 450px;
+            }
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .intro-card h1 { font-size: 36px; }
+            nav ul { display: none; }
+            footer { flex-direction: column; gap: 20px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi Utama -->
+    <div class="container">
+        <nav>
+            <div class="logo">RAMDANI.</div>
+            <ul>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#karya">Showcase</a></li>
+                <li><a href="#kontak">Hubungi</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section (Bento Grid) -->
+    <header class="container hero-bento" id="about">
+        <!-- Kartu Teks Utama -->
+        <div class="bento-card intro-card">
+            <span class="tag">Desain Komunikasi Visual</span>
+            <h1>Saya <br>Rizky Ramdani</h1>
+            <p>Seorang desainer komunikasi visual yang fokus merajut gagasan kreatif ke dalam visual yang bernilai estetika tinggi, strategis, dan komunikatif bagi audiens modern.</p>
+            <a href="#karya" class="cta-btn">Lihat Portofolio</a>
+        </div>
+        
+        <!-- Kartu Foto Profil -->
+        <div class="bento-card image-card">
+            <img src="https://i.ibb.co.com/0Nhhv1S/IMG-20260603-WA0007.jpg" alt="Rizky Ramdani">
+        </div>
+    </header>
+
+    <!-- Galeri Karya (Showcase Grid) -->
+    <main class="container works-section" id="karya">
+        <h2 class="section-title">Karya Pilihan</h2>
+        
+        <div class="work-grid">
+            <!-- Proyek Baru 1 -->
+            <a href="#" class="work-item">
+                <div class="work-thumbnail">
+                    <img src="https://i.ibb.co.com/LzwbDqCH/IMG-20260603-WA0005.jpg" alt="Proyek Dokumentasi Seni">
+                </div>
+                <div class="work-info">
+                    <div class="work-meta">Photography & Lighting</div>
+                    <h3>Visual Narrative Documentation</h3>
+                    <p>Eksperimen teknik pencahayaan dan penataan sudut pandang sinematik untuk membangun emosi visual.</p>
+                </div>
+            </a>
+
+            <!-- Proyek Baru 2 -->
+            <a href="#" class="work-item">
+                <div class="work-thumbnail">
+                    <img src="https://i.ibb.co.com/Q3yzqvyH/IMG-20260603-WA0003.jpg" alt="Proyek Studi Media">
+                </div>
+                <div class="work-info">
+                    <div class="work-meta">Graphic Design</div>
+                    <h3>Conceptual Material Composition</h3>
+                    <p>Eksplorasi tata letak elemen grafis tebal dengan memadukan objek nyata ke dalam ruang media komunikasi.</p>
+                </div>
+            </a>
+
+            <!-- Proyek Baru 3 -->
+            <a href="#" class="work-item">
+                <div class="work-thumbnail">
+                    <img src="https://i.ibb.co.com/Xrfz3K8f/IMG-20260603-WA0004.jpg" alt="Proyek Desain Cetak">
+                </div>
+                <div class="work-info">
+                    <div class="work-meta">Creative Media</div>
+                    <h3>Print Publication Layout</h3>
+                    <p>Penerapan teori hierarki visual dan keterbacaan teks pada struktur media publikasi cetak komersial.</p>
+                </div>
+            </a>
+
+            <!-- Proyek Baru 4 -->
+            <a href="#" class="work-item">
+                <div class="work-thumbnail">
+                    <img src="https://i.ibb.co.com/L4jrwyB/IMG-20260603-WA0006.jpg" alt="Proyek Eksperimen Visual">
+                </div>
+                <div class="work-info">
+                    <div class="work-meta">Visual Artwork</div>
+                    <h3>Contemporary Space & Form</h3>
+                    <p>Studi mengenai hubungan dimensi objek, bayangan, dan perspektif dalam estetika desain modern.</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div class="container" id="kontak">
+        <footer>
+            <p>&copy; 2026 Rizky Ramdani. Hak Cipta Dilindungi.</p>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Behance</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
