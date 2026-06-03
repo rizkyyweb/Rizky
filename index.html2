@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofiyanity - Jasa Desain Grafis Profesional</title>
+    <style>
+        /* Reset & General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Hero Section dengan Background Image */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.ibb.co.com/ycWDK0Mn/IMG-20260603-WA0014.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* Services Section */
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .services-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            color: #222;
+        }
+
+        .services-container h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #007bff;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        /* Footer & Kontak */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            width: 260px;
+        }
+
+        .whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .whatsapp:hover {
+            background-color: #20ba5a;
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+
+        .instagram:hover {
+            opacity: 0.9;
+        }
+
+        footer p.copyright {
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Sofiyanity</h1>
+        <p>Solusi Desain Grafis Kreatif dan Profesional untuk Meningkatkan Nilai Bisnis Anda</p>
+    </header>
+
+    <main class="services-container">
+        <h2>Layanan Kami</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <img src="https://i.ibb.co.com/20yMg8Qk/IMG-20260603-WA0008.jpg" alt="Jasa Desain Banner">
+                <div class="card-body">
+                    <h3>Jasa Desain Banner</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://i.ibb.co.com/0VjvRgyH/IMG-20260603-WA0003.jpg" alt="Jasa Desain Baju">
+                <div class="card-body">
+                    <h3>Jasa Desain Baju</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://i.ibb.co.com/67V56nyL/IMG-20260603-WA0011.jpg" alt="Jasa Desain Cover Buku">
+                <div class="card-body">
+                    <h3>Jasa Desain Cover Buku</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://i.ibb.co.com/8n230tMR/IMG-20260603-WA0009.jpg" alt="Jasa Desain Logo">
+                <div class="card-body">
+                    <h3>Jasa Desain Logo</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <h3>Hubungi Kami</h3>
+        <div class="contact-info">
+            <a href="https://wa.me/6283865904353" target="_blank" class="contact-btn whatsapp">
+                WhatsApp: 083865904353
+            </a>
+            
+            <a href="https://instagram.com/ky1905T" target="_blank" class="contact-btn instagram">
+                Instagram: @ky1905T
+            </a>
+        </div>
+        <p class="copyright">&copy; 2026 Sofiyanity. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
